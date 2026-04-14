@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>À Son Image — Séminaire 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sand: #F5F0E8;
+  --sand-dark: #E8E0D0;
+  --earth: #8B7355;
+  --earth-light: #A89070;
+  --forest: #3A4A3A;
+  --forest-light: #4A5E4A;
+  --gold: #C4A35A;
+  --gold-light: #D4B86A;
+  --cream: #FFFDF7;
+  --ink: #2A2A25;
+  --ink-soft: #4A4A42;
+  --warm-white: #FAF8F3;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
+
+.hero {
+  min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; position: relative; overflow: hidden; padding: 2rem;
+  background: linear-gradient(170deg, var(--forest) 0%, #2D3D2D 40%, #3A4535 70%, var(--forest-light) 100%);
+}
+.hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 80% 60% at 20% 80%, rgba(196,163,90,0.08) 0%, transparent 70%), radial-gradient(ellipse 60% 50% at 80% 20%, rgba(139,164,184,0.06) 0%, transparent 70%); pointer-events:none; }
+.hero::after { content:''; position:absolute; inset:0; background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E"); pointer-events:none; }
+
+.hero-ornament { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:480px; height:480px; border:1px solid rgba(196,163,90,0.12); border-radius:50%; animation:pulse-ring 6s ease-in-out infinite; }
+.hero-ornament::before { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:380px; height:380px; border:1px solid rgba(196,163,90,0.08); border-radius:50%; }
+@keyframes pulse-ring { 0%,100%{opacity:.5;transform:translate(-50%,-50%) scale(1)} 50%{opacity:1;transform:translate(-50%,-50%) scale(1.03)} }
+
+.hero-content { position:relative; z-index:2; max-width:700px; }
+.hero-tag { font-size:0.75rem; letter-spacing:0.35em; text-transform:uppercase; color:var(--gold); margin-bottom:2rem; opacity:0; animation:fadeUp 1s ease .3s forwards; }
+.hero-title { font-family:'Cormorant Garamond',serif; font-size:clamp(3.2rem,8vw,6.5rem); font-weight:300; color:var(--cream); line-height:1.05; margin-bottom:1.5rem; opacity:0; animation:fadeUp 1s ease .5s forwards; }
+.hero-title em { font-style:italic; color:var(--gold); font-weight:400; }
+.hero-subtitle { font-size:1.05rem; color:rgba(245,240,232,0.7); line-height:1.8; max-width:540px; margin:0 auto 1rem; font-weight:300; opacity:0; animation:fadeUp 1s ease .7s forwards; }
+.hero-partner { font-size:0.78rem; color:rgba(245,240,232,0.4); letter-spacing:0.08em; margin-bottom:2.5rem; opacity:0; animation:fadeUp 1s ease .8s forwards; }
+.hero-details { display:flex; gap:2.5rem; justify-content:center; flex-wrap:wrap; margin-bottom:3rem; opacity:0; animation:fadeUp 1s ease .9s forwards; }
+.hero-detail { font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(245,240,232,0.5); }
+.hero-detail strong { display:block; color:var(--cream); font-size:0.95rem; font-weight:500; margin-top:0.3rem; letter-spacing:0; text-transform:none; }
+.hero-cta { opacity:0; animation:fadeUp 1s ease 1.1s forwards; }
+.hero-cta a { display:inline-block; padding:1rem 3rem; background:var(--gold); color:var(--forest); font-size:0.85rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; text-decoration:none; transition:all .4s ease; }
+.hero-cta a:hover { background:var(--gold-light); transform:translateY(-2px); box-shadow:0 8px 30px rgba(196,163,90,0.25); }
+
+.scroll-hint { position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:0.5rem; opacity:0; animation:fadeUp 1s ease 1.5s forwards; }
+.scroll-hint span { font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:rgba(245,240,232,0.3); }
+.scroll-line { width:1px; height:40px; background:linear-gradient(to bottom, rgba(196,163,90,0.4), transparent); animation:scroll-pulse 2s ease infinite; }
+@keyframes scroll-pulse { 0%,100%{opacity:.4} 50%{opacity:1} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(25px)} to{opacity:1;transform:translateY(0)} }
+
+section { padding:6rem 2rem; }
+.container { max-width:960px; margin:0 auto; }
+.section-label { font-size:0.7rem; letter-spacing:0.35em; text-transform:uppercase; color:var(--earth-light); margin-bottom:1.5rem; }
+.section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4.5vw,3.2rem); font-weight:400; line-height:1.2; color:var(--ink); margin-bottom:2rem; }
+.section-title em { font-style:italic; color:var(--earth); }
+
+.vision { background:var(--cream); border-bottom:1px solid var(--sand-dark); }
+.vision-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; margin-top:3rem; }
+.vision-text p { font-size:1.05rem; line-height:1.9; color:var(--ink-soft); margin-bottom:1.5rem; font-weight:300; }
+.vision-quote { position:relative; padding:3rem; background:var(--warm-white); border-left:3px solid var(--gold); }
+.vision-quote blockquote { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-style:italic; line-height:1.6; color:var(--forest); font-weight:400; }
+.vision-quote cite { display:block; margin-top:1.2rem; font-size:0.8rem; font-style:normal; letter-spacing:0.1em; color:var(--earth-light); }
+
+.programme { background:var(--sand); }
+.programme-intro { font-size:1.05rem; line-height:1.9; color:var(--ink-soft); font-weight:300; max-width:680px; margin-bottom:3.5rem; }
+.days-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; }
+.day-card { padding:2.5rem 2rem; background:var(--cream); border:1px solid var(--sand-dark); transition:all .4s ease; position:relative; overflow:hidden; }
+.day-card::before { content:''; position:absolute; top:0; left:0; width:100%; height:3px; background:linear-gradient(90deg,var(--gold),var(--earth-light)); transform:scaleX(0); transform-origin:left; transition:transform .4s ease; }
+.day-card:hover::before { transform:scaleX(1); }
+.day-card:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(0,0,0,0.06); }
+.day-number { font-family:'Cormorant Garamond',serif; font-size:3rem; font-weight:300; color:var(--sand-dark); line-height:1; margin-bottom:0.8rem; }
+.day-title { font-size:1rem; font-weight:600; color:var(--ink); margin-bottom:0.8rem; }
+.day-desc { font-size:0.88rem; line-height:1.7; color:var(--ink-soft); font-weight:300; }
+
+.infos { background:var(--cream); border-top:1px solid var(--sand-dark); }
+.info-items { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:3rem; margin-top:3rem; }
+.info-item h3 { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:500; color:var(--ink); margin-bottom:0.8rem; }
+.info-item p { font-size:0.92rem; line-height:1.8; color:var(--ink-soft); font-weight:300; }
+
+.equipe { background:var(--forest); color:var(--cream); position:relative; overflow:hidden; }
+.equipe::before { content:''; position:absolute; inset:0; background:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E"); pointer-events:none; }
+.equipe .section-label { color:var(--gold); }
+.equipe .section-title { color:var(--cream); }
+.equipe .section-title em { color:var(--gold); }
+.equipe-text { font-size:1.05rem; line-height:1.9; color:rgba(245,240,232,0.7); font-weight:300; max-width:650px; margin-bottom:2rem; }
+.equipe-verse { font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-style:italic; color:rgba(196,163,90,0.7); max-width:550px; line-height:1.6; margin-top:1rem; }
+.equipe-verse cite { display:block; font-family:'DM Sans',sans-serif; font-size:0.75rem; font-style:normal; letter-spacing:0.1em; color:rgba(196,163,90,0.45); margin-top:0.6rem; }
+
+.inscription { background:var(--sand); padding:6rem 2rem; }
+.inscription-inner { max-width:640px; margin:0 auto; text-align:center; }
+.inscription .section-title { margin-bottom:1.5rem; }
+.inscription-desc { font-size:1rem; line-height:1.8; color:var(--ink-soft); font-weight:300; margin-bottom:3rem; }
+.form-section-title { text-align:left; font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--earth); margin-top:2.5rem; margin-bottom:1.2rem; padding-bottom:0.5rem; border-bottom:1px solid var(--sand-dark); }
+.form-section-title:first-of-type { margin-top:0; }
+.form-group { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem; text-align:left; }
+.form-group.full { grid-template-columns:1fr; }
+.form-group label { font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--earth); margin-bottom:0.4rem; display:block; font-weight:500; }
+.form-group .label-note { font-size:0.72rem; color:var(--ink-soft); text-transform:none; letter-spacing:0; font-weight:300; margin-top:-0.2rem; margin-bottom:0.4rem; }
+.form-group input, .form-group select, .form-group textarea { width:100%; padding:0.9rem 1.2rem; border:1px solid var(--sand-dark); background:var(--cream); font-family:'DM Sans',sans-serif; font-size:0.95rem; color:var(--ink); outline:none; transition:border-color .3s ease; border-radius:0; -webkit-appearance:none; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:var(--gold); }
+.form-group textarea { resize:vertical; min-height:100px; }
+.form-group select { cursor:pointer; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238B7355' fill='none' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 1rem center; padding-right:2.5rem; }
+.checkbox-group { text-align:left; margin-bottom:1rem; }
+.checkbox-group label { display:flex; align-items:flex-start; gap:0.8rem; font-size:0.85rem; color:var(--ink-soft); font-weight:300; line-height:1.6; cursor:pointer; text-transform:none; letter-spacing:0; }
+.checkbox-group input[type="checkbox"] { width:auto; margin-top:0.3rem; accent-color:var(--forest); flex-shrink:0; }
+.price-note { text-align:left; margin:2rem 0; padding:1.5rem; background:var(--cream); border-left:3px solid var(--gold); }
+.price-note strong { display:block; font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:var(--ink); margin-bottom:0.3rem; }
+.price-note span { font-size:0.85rem; color:var(--ink-soft); font-weight:300; line-height:1.6; }
+.btn-submit { display:inline-block; padding:1.1rem 4rem; background:var(--forest); color:var(--cream); border:none; font-family:'DM Sans',sans-serif; font-size:0.85rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; cursor:pointer; transition:all .4s ease; margin-top:1rem; }
+.btn-submit:hover { background:var(--ink); transform:translateY(-2px); box-shadow:0 8px 30px rgba(0,0,0,0.12); }
+
+footer { background:var(--ink); color:rgba(245,240,232,0.4); padding:3rem 2rem; text-align:center; font-size:0.8rem; letter-spacing:0.05em; }
+footer a { color:var(--gold); text-decoration:none; }
+
+@media (max-width:768px) {
+  .vision-grid { grid-template-columns:1fr; gap:2rem; }
+  .form-group { grid-template-columns:1fr; }
+  .hero-details { gap:1.5rem; }
+  .hero-ornament { width:320px; height:320px; }
+  .hero-ornament::before { width:250px; height:250px; }
+  section { padding:4rem 1.5rem; }
+}
+
+.reveal { opacity:0; transform:translateY(30px); transition:all .8s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-ornament"></div>
+  <div class="hero-content">
+    <p class="hero-tag">Séminaire · Plateau du Vercors, France · Août 2025</p>
+    <h1 class="hero-title">À Son <em>Image</em></h1>
+    <p class="hero-subtitle">Un séminaire de 5 jours pour redécouvrir le masculin et le féminin à la lumière de la Bible. Un espace de vérité et une invitation à s'émerveiller.</p>
+    <p class="hero-partner">En partenariat avec EFF</p>
+    <div class="hero-details">
+      <div class="hero-detail">Dates<strong>1 – 6 août 2025</strong></div>
+      <div class="hero-detail">Public<strong>Jeunes adultes · 20-30 ans</strong></div>
+      <div class="hero-detail">Places<strong>30 participants</strong></div>
+    </div>
+    <div class="hero-cta"><a href="#inscription">S'inscrire</a></div>
+  </div>
+  <div class="scroll-hint"><span>Découvrir</span><div class="scroll-line"></div></div>
+</section>
+
+<section class="vision">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Notre vision</p>
+      <h2 class="section-title">Redécouvrir ce que Dieu a voulu<br>en nous créant <em>homme et femme</em></h2>
+    </div>
+    <div class="vision-grid">
+      <div class="vision-text reveal">
+        <p>Que l'on s'en rende compte ou non, la question du masculin et du féminin nous concerne tous. Face aux idéaux dans lesquels on ne se reconnaît pas, aux repères qui se déplacent et aux injonctions contradictoires, il n'est pas toujours facile de savoir où se situer. Et pourtant, les espaces pour réfléchir en profondeur à ce que signifie être homme ou femme restent rares.</p>
+        <p>Ce séminaire propose un chemin différent. Ni un débat d'idées, ni une liste de règles — mais une invitation à regarder la création avec de nouvelles lunettes. À travers les Écritures, les grands récits et des temps d'échange, nous explorerons ensemble les dynamiques du masculin et du féminin inscrites dans le monde que Dieu a créé.</p>
+        <p>L'objectif : que chacun reparte avec un regard renouvelé sur sa vocation, ses relations et son identité — en tant qu'homme ou femme créé·e à l'image de Dieu.</p>
+      </div>
+      <div class="reveal">
+        <div class="vision-quote">
+          <blockquote>« Dieu créa l'homme à son image, à l'image de Dieu il le créa ; mâle et femelle il les créa. »</blockquote>
+          <cite>— Genèse 1:27</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="programme">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Le programme</p>
+      <h2 class="section-title">5 jours pour <em>cheminer</em> ensemble</h2>
+      <p class="programme-intro">Chaque journée alterne entre plénières interactives, temps de questions-réponses, ateliers en petits groupes et temps personnels avec Dieu.</p>
+    </div>
+    <div class="days-grid">
+      <div class="day-card reveal">
+        <div class="day-number">01</div>
+        <h3 class="day-title">Le constat</h3>
+        <p class="day-desc">Dans quelle histoire vivons-nous ? Prendre conscience des récits — culturels, familiaux, des églises — qui façonnent notre regard sur le masculin et le féminin.</p>
+      </div>
+      <div class="day-card reveal">
+        <div class="day-number">02</div>
+        <h3 class="day-title">Le monde parle</h3>
+        <p class="day-desc">Ouvrir la Bible et y redécouvrir une structure fondamentale qui traverse toute la création — et qui donne du sens à ce que nous observons autour de nous et en nous.</p>
+      </div>
+      <div class="day-card reveal">
+        <div class="day-number">03</div>
+        <h3 class="day-title">La danse</h3>
+        <p class="day-desc">Voir le masculin et le féminin à l'œuvre dans les récits bibliques, comprendre leur complémentarité et découvrir comment tout converge en Christ et l'Église.</p>
+      </div>
+      <div class="day-card reveal">
+        <div class="day-number">04</div>
+        <h3 class="day-title">Entrer dans la danse</h3>
+        <p class="day-desc">Incarner ces réalités dans le concret : le corps, les relations, les dérives à reconnaître et la restauration que Christ rend possible.</p>
+      </div>
+      <div class="day-card reveal">
+        <div class="day-number">05</div>
+        <h3 class="day-title">Le chemin devant nous</h3>
+        <p class="day-desc">Faire le point sur ce qui a été vécu, nommer ce que l'on emporte et se mettre en route — chacun avec ce que Dieu a déposé en nous.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="infos">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Informations pratiques</p>
+      <h2 class="section-title">Tout ce qu'il faut <em>savoir</em></h2>
+    </div>
+    <div class="info-items">
+      <div class="info-item reveal">
+        <h3>Lieu</h3>
+        <p>Plateau du Vercors, France — un joli cadre en pleine nature, en partenariat avec EFF.</p>
+      </div>
+      <div class="info-item reveal">
+        <h3>Horaires</h3>
+        <p>Arrivée dimanche 1er août en soirée. Sessions de 9h à 16h du lundi au vendredi. Plénières interactives, ateliers et temps personnels.</p>
+      </div>
+      <div class="info-item reveal">
+        <h3>Hébergement</h3>
+        <p>Chaque participant organise son logement. Nous proposons une liste de contacts sur le plateau pour ceux qui n'ont pas de famille sur place.</p>
+      </div>
+      <div class="info-item reveal">
+        <h3>Repas</h3>
+        <p>Le repas de midi est partagé tous ensemble sur place, préparé par une équipe dédiée. Un moment pour poursuivre nos échanges.</p>
+      </div>
+      <div class="info-item reveal">
+        <h3>Prix</h3>
+        <p>60 € pour la semaine (repas de midi et matériel inclus). L'argent ne doit pas être un frein — contactez-nous si besoin.</p>
+      </div>
+      <div class="info-item reveal">
+        <h3>Pour qui ?</h3>
+        <p>Jeunes adultes de 20 à 30 ans, hommes et femmes, qui se questionnent sur leur vocation et désirent creuser une vision biblique du masculin et du féminin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="equipe">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">L'équipe</p>
+      <h2 class="section-title">Portés par une <em>même vision</em></h2>
+    </div>
+    <p class="equipe-text reveal">Nous sommes un groupe de jeunes adultes chrétiens — Cécile, Val, Jonathan, Flo et Marc — travaillés depuis plusieurs années par les questions du masculin et du féminin. Convaincus que Dieu nous a créés avec une intention précise, nous avons senti l'appel de creuser ensemble ce que sa Parole révèle sur ce sujet. Ce séminaire est le fruit de mois de réflexion, de prière et de mise en commun.</p>
+    <p class="equipe-text reveal">Nous ne venons pas en experts mais en compagnons de route. Nous croyons que la Bible offre un regard d'une profondeur et d'une beauté extraordinaires sur ces sujets — et nous voulons créer l'espace pour le découvrir ensemble.</p>
+    <div class="equipe-verse reveal">
+      <blockquote>« Car c'est toi qui as formé mes reins, qui m'as tissé dans le sein de ma mère. Je te loue de ce que je suis une créature si merveilleuse. »</blockquote>
+      <cite>— Psaume 139:13-14</cite>
+    </div>
+  </div>
+</section>
+
+<section class="inscription" id="inscription">
+  <div class="inscription-inner">
+    <div class="reveal">
+      <p class="section-label">Inscription</p>
+      <h2 class="section-title">Rejoins-nous cet <em>été</em></h2>
+      <p class="inscription-desc">Merci de ton intérêt ! Ce formulaire prend moins de 3 minutes à remplir. Les places sont limitées — une confirmation te sera envoyée par email.</p>
+    </div>
+    <form class="reveal" onsubmit="handleSubmit(event)">
+
+      <div class="form-section-title">1. Informations de base</div>
+      <div class="form-group">
+        <div><label for="prenom">Prénom *</label><input type="text" id="prenom" name="prenom" required></div>
+        <div><label for="nom">Nom *</label><input type="text" id="nom" name="nom" required></div>
+      </div>
+      <div class="form-group">
+        <div><label for="email">Email *</label><input type="email" id="email" name="email" required></div>
+        <div><label for="tel">Téléphone</label><p class="label-note">Optionnel</p><input type="tel" id="tel" name="tel"></div>
+      </div>
+      <div class="form-group full">
+        <div><label for="dob">Date de naissance *</label><input type="date" id="dob" name="dob" required></div>
+      </div>
+
+      <div class="form-section-title">2. Contexte</div>
+      <div class="form-group full">
+        <div><label for="ville">Dans quelle ville / région es-tu ? *</label><input type="text" id="ville" name="ville" required></div>
+      </div>
+      <div class="form-group">
+        <div>
+          <label for="eglise-yn">Fais-tu partie d'une église ou d'un groupe chrétien ? *</label>
+          <select id="eglise-yn" name="eglise-yn" required onchange="toggleEglise(this)">
+            <option value="">Sélectionner</option><option value="oui">Oui</option><option value="non">Non</option>
+          </select>
+        </div>
+        <div id="eglise-detail" style="display:none;">
+          <label for="eglise">Si oui, laquelle ?</label><input type="text" id="eglise" name="eglise">
+        </div>
+      </div>
+      <div class="form-group full">
+        <div>
+          <label for="source">Comment as-tu entendu parler de ce séminaire ? *</label>
+          <select id="source" name="source" required onchange="toggleAutre(this)">
+            <option value="">Sélectionner</option><option value="ami">Par un ami</option><option value="eglise">Par mon église</option><option value="reseaux">Réseaux sociaux</option><option value="eff">Site EFF / Repère</option><option value="autre">Autre</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group full" id="source-autre-detail" style="display:none;">
+        <div><label for="source-autre">Précise :</label><input type="text" id="source-autre" name="source-autre"></div>
+      </div>
+
+      <div class="form-section-title">3. Besoins pratiques</div>
+      <div class="form-group full">
+        <div><label for="allergies">Contraintes alimentaires ou allergies ?</label><p class="label-note">Optionnel — laisse vide si aucune</p><input type="text" id="allergies" name="allergies" placeholder="Ex : végétarien, sans gluten…"></div>
+      </div>
+      <div class="form-group full">
+        <div><label for="accessibilite">Besoins spécifiques d'accessibilité ?</label><p class="label-note">Optionnel</p><input type="text" id="accessibilite" name="accessibilite"></div>
+      </div>
+
+      <div class="form-section-title">4. Ce qui t'amène</div>
+      <div class="form-group full">
+        <div>
+          <label for="question-camp">Quelle serait une question sur le masculin ou le féminin que tu aimerais qu'on aborde pendant ce séminaire ?</label>
+          <p class="label-note">Optionnel — mais ça nous aide à préparer !</p>
+          <textarea id="question-camp" name="question-camp" rows="3"></textarea>
+        </div>
+      </div>
+
+      <div class="form-section-title">5. Autre chose ?</div>
+      <div class="form-group full">
+        <div>
+          <label for="autres-questions">As-tu d'autres questions pratiques ou quelque chose que tu aimerais nous communiquer ?</label>
+          <p class="label-note">Optionnel</p>
+          <textarea id="autres-questions" name="autres-questions" rows="3"></textarea>
+        </div>
+      </div>
+
+      <div class="form-section-title">6. Confirmation</div>
+      <div class="checkbox-group">
+        <label><input type="checkbox" required> J'ai compris que les places sont limitées et je m'engage à être présent·e pour les 5 jours du séminaire.</label>
+      </div>
+      <div class="checkbox-group">
+        <label><input type="checkbox" required> J'accepte que mes informations soient utilisées pour l'organisation de cet événement (conformément à la protection des données).</label>
+      </div>
+
+      <div class="price-note">
+        <strong>60 € pour la semaine</strong>
+        <span>Repas de midi et matériel inclus. Si tu souhaites soutenir davantage le projet EFF, un prix de soutien est proposé. L'argent ne doit pas être un frein — n'hésite pas à nous en parler.</span>
+      </div>
+
+      <button type="submit" class="btn-submit">Envoyer mon inscription</button>
+    </form>
+    <div id="confirmation" style="display:none; margin-top:2rem; padding:2rem; background:var(--cream); border-left:3px solid var(--forest);">
+      <p style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:var(--forest);">Merci !</p>
+      <p style="font-size:0.92rem; color:var(--ink-soft); margin-top:0.5rem; font-weight:300;">Ton inscription a bien été enregistrée. Tu recevras un email de confirmation d'ici quelques jours avec les informations pratiques. Si tu as une question d'ici là, écris-nous à <a href="mailto:contact@asonimage.ch" style="color:var(--forest);">contact@asonimage.ch</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>À Son Image · Séminaire 2025 · En partenariat avec <a href="#">EFF</a> & <a href="#">Repère</a></p>
+  <p style="margin-top:0.5rem; font-size:0.7rem;">Contact : <a href="mailto:contact@asonimage.ch">contact@asonimage.ch</a></p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+reveals.forEach(el => observer.observe(el));
+
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('.btn-submit');
+  btn.textContent = 'Envoi en cours...';
+  btn.disabled = true;
+
+  const data = {
+    prenom: form.prenom.value,
+    nom: form.nom.value,
+    email: form.email.value,
+    tel: form.tel.value,
+    dob: form.dob.value,
+    ville: form.ville.value,
+    eglise_yn: form['eglise-yn'].value,
+    eglise: form.eglise ? form.eglise.value : '',
+    source: form.source.value,
+    source_autre: form['source-autre'] ? form['source-autre'].value : '',
+    allergies: form.allergies.value,
+    accessibilite: form.accessibilite.value,
+    question_camp: form['question-camp'].value,
+    autres_questions: form['autres-questions'].value
+  };
+
+  fetch('inscription.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+  .then(r => r.json())
+  .then(res => {
+    if (res.success) {
+      form.style.display = 'none';
+      document.getElementById('confirmation').style.display = 'block';
+    } else {
+      alert(res.error || 'Une erreur est survenue. Contacte-nous à contact@asonimage.ch');
+      btn.textContent = 'Envoyer mon inscription';
+      btn.disabled = false;
+    }
+  })
+  .catch(() => {
+    alert('Erreur de connexion. Contacte-nous à contact@asonimage.ch');
+    btn.textContent = 'Envoyer mon inscription';
+    btn.disabled = false;
+  });
+}
+
+function toggleEglise(select) {
+  document.getElementById('eg
