@@ -47,6 +47,7 @@ $eglise_yn    = htmlspecialchars($data['eglise_yn'] ?? '');
 $eglise       = htmlspecialchars($data['eglise'] ?? 'Non précisé');
 $source       = htmlspecialchars($data['source'] ?? '');
 $source_autre = htmlspecialchars($data['source_autre'] ?? '');
+$logement     = htmlspecialchars($data['logement'] ?? 'Non précisé');
 $allergies    = htmlspecialchars($data['allergies'] ?? 'Aucune');
 $accessibilite = htmlspecialchars($data['accessibilite'] ?? 'Aucun');
 $question     = htmlspecialchars($data['question_camp'] ?? 'Pas de question');
@@ -95,6 +96,7 @@ Source :           $source_txt
 
 BESOINS PRATIQUES
 ─────────────────────
+Logement :         $logement
 Allergies :        $allergies
 Accessibilité :    $accessibilite
 
@@ -168,6 +170,7 @@ $csv_row = [
     $eglise_yn,
     $eglise,
     $source_txt,
+    $logement,
     $allergies,
     $accessibilite,
     $question,
@@ -179,7 +182,7 @@ if (!$csv_exists) {
     fputcsv($fp, [
         'Date inscription', 'Prénom', 'Nom', 'Email', 'Téléphone',
         'Date naissance', 'Ville', 'Église (O/N)', 'Église (nom)',
-        'Source', 'Allergies', 'Accessibilité', 'Question', 'Autres'
+        'Source', 'Logement', 'Allergies', 'Accessibilité', 'Question', 'Autres'
     ]);
 }
 fputcsv($fp, $csv_row);

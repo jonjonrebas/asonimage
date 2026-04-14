@@ -166,7 +166,7 @@ footer a { color:var(--gold); text-decoration:none; }
       </div>
       <div class="reveal">
         <div class="vision-quote">
-          <blockquote>« Dieu créa l'homme à son image, à l'image de Dieu il le créa ; mâle et femelle il les créa. »</blockquote>
+          <blockquote>« Dieu créa l'humain à son image, à l'image de Dieu il le créa ; mâle et femelle il les créa. »</blockquote>
           <cite>— Genèse 1:27</cite>
         </div>
       </div>
@@ -312,6 +312,16 @@ footer a { color:var(--gold); text-decoration:none; }
 
       <div class="form-section-title">3. Besoins pratiques</div>
       <div class="form-group full">
+        <div>
+          <label for="logement">As-tu besoin d'un logement ? *</label>
+          <select id="logement" name="logement" required>
+            <option value="">Sélectionner</option>
+            <option value="non">Non, c'est organisé</option>
+            <option value="oui">Oui, j'aurais besoin d'une solution</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group full">
         <div><label for="allergies">Contraintes alimentaires ou allergies ?</label><p class="label-note">Optionnel — laisse vide si aucune</p><input type="text" id="allergies" name="allergies" placeholder="Ex : végétarien, sans gluten…"></div>
       </div>
       <div class="form-group full">
@@ -393,6 +403,7 @@ function handleSubmit(e) {
     eglise: form.eglise ? form.eglise.value : '',
     source: form.source.value,
     source_autre: form['source-autre'] ? form['source-autre'].value : '',
+    logement: form.logement.value,
     allergies: form.allergies.value,
     accessibilite: form.accessibilite.value,
     question_camp: form['question-camp'].value,
